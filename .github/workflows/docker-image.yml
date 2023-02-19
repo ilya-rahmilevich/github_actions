@@ -21,7 +21,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag meir215/guess:$(date +%s)
+      run: docker build . --file Dockerfile --tag meir215/guess:$"1.0.${env.BUILD_NUMBER}"
     - name: Docker Push
-      run: docker push meir215/guess
+      run: docker push meir215/guess:$"1.0.${env.BUILD_NUMBER}"
 
